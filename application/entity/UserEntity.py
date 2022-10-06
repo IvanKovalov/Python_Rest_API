@@ -1,8 +1,8 @@
 class UserEntity:
     def __init__(self):
-        pass
+        self.name = None
 
-    def __set_name__(self, name):
+    def set_nam(self, name):
         self.name = name
 
     def __set_id__(self, id):

@@ -1,4 +1,3 @@
-# import application.views
 import json
 
 from flask import Flask, request
@@ -20,7 +19,7 @@ def user():
     user_dto = UserDTO()
     request_data = request.get_json()
     user_name = request_data['name']
-    user_dto.__set_name__(user_name)
+    user_dto.set_name(user_name)
     user_service.save_user(user_dto)
     return app.make_response('200')
 

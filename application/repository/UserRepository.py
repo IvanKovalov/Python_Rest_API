@@ -8,7 +8,7 @@ class UserRepository:
 
     def save_user(self, user_name):
         user_entity = UserEntity()
-        user_entity.__set_name__(user_name)
+        user_entity.set_nam(user_name)
         user_entity.__set_id__(self.user_counter)
         self.user_map.pop(self.user_counter, user_entity)
         self.user_map[self.user_counter] = user_entity

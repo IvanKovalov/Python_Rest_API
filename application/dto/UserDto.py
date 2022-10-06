@@ -1,9 +1,9 @@
 class UserDTO:
     def __init__(self):
-        pass
+        self.name = None
 
     def __get_name__(self):
         return self.name
 
-    def __set_name__(self, name):
+    def set_name(self, name):
         self.name = name
