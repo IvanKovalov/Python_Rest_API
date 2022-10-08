@@ -8,7 +8,7 @@ class RecordService:
     def __init__(self):
         self.record_counter = 1
         self.record_repository = RecordRepository()
-        self.log = logging.getLogger(RecordService.__class__.__name__)
+        self.log = logging.getLogger(RecordService.__name__)
         self.log.info("Created new instance of Record Service")
 
     def add_record(self, record_dto):
@@ -32,7 +32,7 @@ class RecordService:
     def get_records_by_category_and_user(self, user_id, category_id):
 
         if type(user_id) is not int or type(category_id) is not int:
-            self.log.info("Wring id of user")
+            self.log.info("Wrong id of user")
             return Exception('Wrong type of id')
         else:
             self.log.info("Try to get list of records bu user and record")
