@@ -15,7 +15,7 @@ from application.service.UserService import UserService
 app = Flask(__name__)
 user_service = UserService()
 category_service = CategoryService()
-record_service = RecordService()
+record_service = RecordService(user_service.user_repository, category_service.category_repository)
 logging.basicConfig(level=logging.INFO, filename='myapp.log', format='%(asctime)s %(levelname)s:%(message)s')
 
 
@@ -68,8 +68,7 @@ def add_record():
     record_dto.set_category(int(request_data['category_id']))
     record_dto.set_create_date(datetime.time.hour)
     record_dto.set_sum(int(request_data['sum']))
-    record_service.add_record(record_dto)
-    return app.make_response('200')
+    return app.make_response(json.dumps(record_service.add_record(record_dto)))
 
 
 @app.route('/records/', methods=["POST"])
