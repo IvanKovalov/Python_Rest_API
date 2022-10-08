@@ -1,5 +1,6 @@
 import datetime
 import json
+import logging
 
 from flask import Flask, request
 
@@ -15,6 +16,7 @@ app = Flask(__name__)
 user_service = UserService()
 category_service = CategoryService()
 record_service = RecordService()
+logging.basicConfig(level=logging.INFO, filename='myapp.log', format='%(asctime)s %(levelname)s:%(message)s')
 
 
 @app.route('/')
@@ -35,7 +37,7 @@ def user():
 @app.route('/user/<user_id>', methods=["GET"])
 def get_user(user_id):
     user1 = user_service.get_user(user_id)
-    return app.make_response(json.dumps(user1.__dict__))
+    return app.make_response(json.dumps(user1))
 
 
 @app.route('/category/', methods=["POST"])
@@ -72,7 +74,6 @@ def add_record():
 
 @app.route('/records/', methods=["POST"])
 def get_records_by_user_category():
-
     request_data = request.get_json()
     user_id = int(request_data['user_id'])
     category_id = int(request_data['category_id'])
