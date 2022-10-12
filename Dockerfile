@@ -1,7 +1,5 @@
 FROM python:3.9.1
 
-#ENV FLASK_APP=opt/application/__init__.py
-
 COPY requirements.txt /opt
 
 RUN pip install -r /opt/requirements.txt
