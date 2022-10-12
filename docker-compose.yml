@@ -1,7 +1,7 @@
 version: '3'
 
 services:
- <app_name>:
+ 1run:
    restart: always
    build:
      context: .
