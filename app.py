@@ -7,7 +7,6 @@ from flask import Flask, request
 from application.dto.CategoryDto import CategoryDTO
 from application.dto.RecordDto import RecordDTO
 from application.dto.UserDto import UserDTO
-from application.repository.RecordRepository import RecordRepository
 from application.service.CategoryService import CategoryService
 from application.service.RecordService import RecordService
 from application.service.UserService import UserService
@@ -30,8 +29,9 @@ def user():
     request_data = request.get_json()
     user_name = request_data['name']
     user_dto.set_name(user_name)
-    user_service.save_user(user_dto)
-    return app.make_response('200')
+    response = app.make_response()
+    response.status_code = user_service.save_user(user_dto)
+    return response
 
 
 @app.route('/user/<user_id>', methods=["GET"])

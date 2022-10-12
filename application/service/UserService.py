@@ -15,13 +15,14 @@ class UserService:
     def save_user(self, user_dto):
         if user_dto.__get_name__() is None:
             self.log.error("Wrong data")
-            return 404
+            return 403
         user_entity = UserEntity()
         user_entity.set_name(user_dto.__get_name__())
         user_entity.__set_id__(self.user_counter)
         self.user_counter = self.user_counter + 1
         self.log.info("Saving user")
         self.user_repository.save_user(user_entity)
+        return 200
 
     def get_user(self, id):
         self.log.info("Get user by id")
