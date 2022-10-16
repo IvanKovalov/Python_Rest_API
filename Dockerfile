@@ -12,6 +12,6 @@ WORKDIR /opt
 
 EXPOSE 5000
 
-CMD flask run --host 0.0.0.0 -p 5000
+CMD flask run --host 0.0.0.0 -p $PORT
 
 
