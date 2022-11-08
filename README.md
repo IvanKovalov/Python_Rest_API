@@ -10,5 +10,5 @@
 
 ### Usage
 
-For running application on port 8082 type:
+For running application on port 8082 type :
 >  python -m flask run -h '0.0.0.0' --port 8082
