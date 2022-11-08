@@ -15,7 +15,7 @@ app = Flask(__name__)
 user_service = UserService()
 category_service = CategoryService()
 record_service = RecordService(user_service.user_repository, category_service.category_repository)
-logging.basicConfig(level=logging.INFO, filename='myapp.log', format='%(asctime)s %(levelname)s:%(message)s')
+logging.basicConfig(level=logging.INFO,  format='%(asctime)s %(levelname)s:%(message)s')
 
 
 @app.route('/')
@@ -29,9 +29,8 @@ def user():
     request_data = request.get_json()
     user_name = request_data['name']
     user_dto.set_name(user_name)
-    response = app.make_response()
-    response.status_code = user_service.save_user(user_dto)
-    return response
+    user_service.save_user(user_dto)
+    return app.make_response('200')
 
 
 @app.route('/user/<user_id>', methods=["GET"])
