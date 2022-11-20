@@ -1,10 +1,15 @@
-class CategoryDTO:
-    def __init__(self):
-        self.category_name = None
+from marshmallow import fields, Schema
 
+from application.validator.RecordValidator import UsersIDValidator
+
+
+class CategoryDTO(Schema):
+    id = fields.Str(dump_only=True)
+    categoryName = fields.Str(required=True)
+    ownerId = UsersIDValidator()
+    private = fields.Boolean(required=False)
     def __get_name__(self):
-        return self.category_name
+        return self.categoryName
 
     def set_name(self, category_name):
-        self.category_name = category_name
-
+        self.categoryName = category_name

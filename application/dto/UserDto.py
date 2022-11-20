@@ -1,9 +1,12 @@
-class UserDTO:
-    def __init__(self):
-        self.user_name = None
+from marshmallow import Schema, fields, validate
+
+
+class UserDTO(Schema):
+    id = fields.Str(dump_only=True)
+    userName = fields.Str(required=True, validate=validate.Length(max=40))
 
     def __get_name__(self):
-        return self.user_name
+        return self.userName
 
     def set_name(self, user_name):
-        self.user_name = user_name
+        self.userName = user_name
