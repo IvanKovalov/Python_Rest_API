@@ -23,7 +23,6 @@ class CategoryService:
         #         self.log.info("Find category by id" + category_id)
         #         return self.category_repository.get_category_by_id(int(category_id))
         #     else:
-        #         self.log.error("No category with such id")
         #         return Exception('No category with such id')
         # else:
         #     self.log.error("Id not integer")
