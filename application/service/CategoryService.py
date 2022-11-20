@@ -1,6 +1,5 @@
 import logging
 
-from application.entity.CategoryEntity import CategoryEntity
 from application.models.CategoryModel import CategoryModel
 from application.models.database import db
 from application.repository.CategoryRepository import CategoryRepository
