@@ -18,15 +18,6 @@ class CategoryService:
         return category
 
     def get_category(self, category_id):
-        # if type(category_id) is int:
-        #     if category_id in self.category_repository.category_map.keys():
-        #         self.log.info("Find category by id" + category_id)
-        #         return self.category_repository.get_category_by_id(int(category_id))
-        #     else:
-        #         return Exception('No category with such id')
-        # else:
-        #     self.log.error("Id not integer")
-        #     return Exception('Id not integer')
         self.log.info("Get category by id: " + category_id)
         return self.category_repository.get_category_by_id(int(category_id))
 

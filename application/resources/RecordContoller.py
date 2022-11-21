@@ -23,12 +23,6 @@ def show_records_by_user_id(user_id):
 @record_blp.arguments(RecordDTO)
 @record_blp.response(200, RecordDTO)
 def add_record(record_dto):
-    # record_dto = RecordDTO()
-    # request_data = request.get_json()
-    # record_dto.set_user(int(request_data['user_id']))
-    # record_dto.set_category(int(request_data['category_id']))
-    # record_dto.set_create_date(datetime.date.today())
-    # record_dto.set_sum(int(request_data['sum']))
     return record_service.add_record(record_dto)
 
 

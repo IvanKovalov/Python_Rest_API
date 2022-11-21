@@ -14,12 +14,6 @@ category_service = CategoryService()
 @category_blp.arguments(CategoryDTO)
 @category_blp.response(200, CategoryDTO)
 def add_category(category_dto):
-    # request_data = request.get_json()
-    # category_name = request_data['name']
-    # category_dto = CategoryDTO()
-    # category_dto.set_name(category_name)
-    # # category_service.save_category(category_dto)
-    # return category_service.save_category(category_dto).__dict__
     return category_service.save_category(category_dto)
 
 
