@@ -1,4 +1,4 @@
-
+from flask_jwt_extended import jwt_required
 from flask_smorest import Blueprint
 
 from application.dto.UserDto import UserDTO
@@ -16,6 +16,7 @@ def user(user_data):
 
 
 @user_blp.route('/user/<user_id>', methods=["GET"])
+@jwt_required()
 @user_blp.response(200, UserDTO)
 def get_user(user_id):
     user = user_service.get_user(user_id)
