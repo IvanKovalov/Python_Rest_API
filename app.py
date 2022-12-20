@@ -1,4 +1,5 @@
 import logging
+import os
 
 from flask import Flask, jsonify
 from flask_jwt_extended import JWTManager
@@ -15,7 +16,7 @@ app.register_blueprint(user_blp)
 app.register_blueprint(category_blp)
 app.register_blueprint(record_blp)
 app.register_blueprint(login_blp)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:1234@localhost:3306/pyt'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DB']
 app.config['JWT_SECRET_KEY'] = 'super-secret'  # Change on production
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
